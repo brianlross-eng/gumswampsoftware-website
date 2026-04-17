@@ -11,6 +11,12 @@
         <div class="container">
             <h1>Gum Swamp Software</h1>
             <p class="tagline">Building open-source tools from the Carolina lowcountry</p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#lazarus">Lazarus</a>
+                <a href="#llamaste">Llamaste</a>
+                <a href="#support">Support</a>
+            </nav>
         </div>
     </header>
 
@@ -20,42 +26,59 @@
             <p>Gum Swamp Software (GSS) is an independent software company based in Beaufort, South Carolina, building open-source tools and applications. Named after the blackwater cypress swamps of the Carolina coast.</p>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
+        <section id="lazarus">
+            <h2>Lazarus</h2>
+            <p class="project-desc">A free PyPI-compatible proxy that automatically fixes Python packages broken by Python 3.14 incompatibilities. Fetches packages from PyPI, applies fixes, and serves them transparently.</p>
 
-            <div class="project">
-                <h3>Llamaste</h3>
-                <p>A bootable Linux OS where a large language model runs as PID 1. Open-source, Apache 2.0 licensed.</p>
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">500k+</span>
+                    <span class="stat-label">Packages processed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">88%</span>
+                    <span class="stat-label">Success rate</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">22</span>
+                    <span class="stat-label">Auto-fix types</span>
+                </div>
+            </div>
+
+            <h3>Quick Start</h3>
+            <pre><code>pip install --index-url https://lazaruspy.org/simple/ your-package</code></pre>
+            <p>Or configure globally in <code>pip.conf</code>:</p>
+            <pre><code>[global]
+index-url = https://lazaruspy.org/simple/
+extra-index-url = https://pypi.org/simple/</code></pre>
+
+            <div class="btn-row">
+                <a href="https://lazaruspy.org/simple/" class="btn">Package Index →</a>
+                <a href="https://github.com/brianlross-eng/lazarus" class="btn">GitHub →</a>
+            </div>
+        </section>
+
+        <section id="llamaste">
+            <h2>Llamaste</h2>
+            <p class="project-desc">A bootable Linux OS where a large language model runs as PID 1. Open-source, Apache 2.0 licensed. Currently in active development.</p>
+            <div class="btn-row">
                 <a href="https://github.com/brianlross-eng/llamaste" class="btn">GitHub →</a>
-            </div>
-
-            <div class="project">
-                <h3>Lazarus</h3>
-                <p>A PyPI-compatible proxy that automatically fixes Python packages broken by Python 3.14 incompatibilities. Free to use at lazaruspy.org.</p>
-                <a href="https://lazaruspy.org" class="btn">lazaruspy.org →</a>
-            </div>
-
-            <div class="project">
-                <h3>More coming soon</h3>
-                <p>GSS is actively developing new open-source tools and applications.</p>
             </div>
         </section>
 
         <section id="support">
             <h2>Support Our Work</h2>
-            <p>GSS projects are free and open-source. If you find our tools useful, consider supporting development.</p>
-            <a href="https://github.com/sponsors/brianlross-eng" class="btn btn-primary">Sponsor on GitHub →</a>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Questions or feedback? Reach us at <a href="mailto:hello@gumswampsoftware.com">hello@gumswampsoftware.com</a></p>
+            <p>GSS projects are free and open-source. If you find our tools useful, consider supporting continued development.</p>
+            <div class="btn-row">
+                <a href="https://github.com/sponsors/brianlross-eng" class="btn btn-primary">Sponsor on GitHub →</a>
+            </div>
+            <p class="contact">Questions? <a href="mailto:hello@gumswampsoftware.com">hello@gumswampsoftware.com</a></p>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2026 Gum Swamp Software. Beaufort, South Carolina.</p>
+            <p>© 2026 Gum Swamp Software · Beaufort, South Carolina · <a href="mailto:hello@gumswampsoftware.com">hello@gumswampsoftware.com</a></p>
         </div>
     </footer>
 </body>
