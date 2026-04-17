@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gum Swamp Software</title>
+    <meta name="description" content="Independent open-source software from the Carolina lowcountry. Building tools that solve real problems.">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Gum Swamp Software</h1>
-            <p class="tagline">Building open-source tools from the Carolina lowcountry</p>
+            <p class="tagline">Open-source tools from the Carolina lowcountry</p>
             <nav>
                 <a href="#about">About</a>
                 <a href="#lazarus">Lazarus</a>
@@ -23,12 +24,16 @@
     <main class="container">
         <section id="about">
             <h2>About</h2>
-            <p>Gum Swamp Software (GSS) is an independent software company based in Beaufort, South Carolina, building open-source tools and applications. Named after the blackwater cypress swamps of the Carolina coast.</p>
+            <p>Gum Swamp Software (GSS) is an independent software company based in Beaufort, South Carolina. We build open-source tools and applications that solve real problems while maintaining technical excellence.</p>
+            <p>Our name reflects our roots—the blackwater cypress swamps of the Carolina coast. Like those resilient ecosystems, we build software that stands the test of time: robust, efficient, and sustainable.</p>
+            <p class="mission">
+                <strong>Our mission:</strong> Create sustainable open-source software that solves real-world problems while maintaining technical excellence and community engagement.
+            </p>
         </section>
 
         <section id="lazarus">
             <h2>Lazarus</h2>
-            <p class="project-desc">A free PyPI-compatible proxy that automatically fixes Python packages broken by Python 3.14 incompatibilities. Fetches packages from PyPI, applies fixes, and serves them transparently.</p>
+            <p class="project-desc">A PyPI-compatible proxy that automatically fixes Python packages broken by Python 3.14 incompatibilities. Fetches packages from PyPI, applies fixes, and serves them transparently—no configuration needed.</p>
 
             <div class="stats-grid">
                 <div class="stat">
@@ -46,6 +51,7 @@
             </div>
 
             <h3>Quick Start</h3>
+            <p>Replace your PyPI index with Lazarus:</p>
             <pre><code>pip install --index-url https://lazaruspy.org/simple/ your-package</code></pre>
             <p>Or configure globally in <code>pip.conf</code>:</p>
             <pre><code>[global]
@@ -60,7 +66,18 @@ extra-index-url = https://pypi.org/simple/</code></pre>
 
         <section id="llamaste">
             <h2>Llamaste</h2>
-            <p class="project-desc">A bootable Linux OS where a large language model runs as PID 1. Open-source, Apache 2.0 licensed. Currently in active development.</p>
+            <p class="project-desc">A bootable Linux OS where a large language model runs as PID 1. Open-source, Apache 2.0 licensed. Run LLMs on bare metal with zero configuration.</p>
+            <p>Llamaste brings the power of modern LLMs to any x86-64 machine. Boot from USB, start generating, and forget about complex setup procedures. Perfect for development, testing, or running your own AI assistant.</p>
+            <div class="features">
+                <h3>Features</h3>
+                <ul>
+                    <li>Pre-configured LLM runtime (PID 1)</li>
+                    <li>Simple web interface for interaction</li>
+                    <li>Model swapping without reinstallation</li>
+                    <li>Lightweight, runs on minimal hardware</li>
+                </ul>
+            </div>
+            <p class="status-badge">Status: Active Development</p>
             <div class="btn-row">
                 <a href="https://github.com/brianlross-eng/llamaste" class="btn">GitHub →</a>
             </div>
@@ -68,10 +85,37 @@ extra-index-url = https://pypi.org/simple/</code></pre>
 
         <section id="support">
             <h2>Support Our Work</h2>
-            <p>GSS projects are free and open-source. If you find our tools useful, consider supporting continued development.</p>
-            <div class="btn-row">
-                <a href="https://github.com/sponsors/brianlross-eng" class="btn btn-primary">Sponsor on GitHub →</a>
+            <p>GSS projects are free and open-source. Your support helps us maintain existing tools, develop new ones, and keep the community thriving.</p>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <h3>GitHub Sponsors</h3>
+                    <p>Recurring monthly support. Perfect for individuals and organizations who want to help us consistently.</p>
+                    <a href="https://github.com/sponsors/brianlross-eng" class="btn btn-primary">Sponsor on GitHub →</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>Ko-fi</h3>
+                    <p>One-time donations. Buy us a coffee or fund a specific feature.</p>
+                    <a href="https://ko-fi.com/gumswampsoftware" class="btn">Buy us a Coffee →</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>Open Collective</h3>
+                    <p>Transparent funding. All contributions are publicly tracked and used for project development.</p>
+                    <a href="https://opencollective.com/gumswampsoftware" class="btn">Join Open Collective →</a>
+                </div>
             </div>
+
+            <h3>Other Ways to Help</h3>
+            <ul class="support-list">
+                <li>Star our GitHub repositories</li>
+                <li>Contribute code or documentation</li>
+                <li>Report bugs and suggest features</li>
+                <li>Share our projects with your network</li>
+                <li>Join our community discussions</li>
+            </ul>
+
             <p class="contact">Questions? <a href="mailto:hello@gumswampsoftware.com">hello@gumswampsoftware.com</a></p>
         </section>
     </main>
