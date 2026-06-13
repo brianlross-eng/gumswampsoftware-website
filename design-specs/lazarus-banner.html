@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazarus - Swamp Graveyard Banner Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f172a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Banner Container */
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Swamp Graveyard Background */
+        .graveyard-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center,
+                #1a2e35 0%,
+                #0f172a 40%,
+                #020617 100%);
+        }
+
+        /* Stars */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.9;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        /* Fog */
+        .fog {
+            position: absolute;
+            bottom: 20%;
+            left: -10%;
+            width: 120%;
+            height: 40%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(100, 116, 139, 0.2),
+                transparent);
+            animation: fogFlow 40s linear infinite;
+        }
+
+        @keyframes fogFlow {
+            from { transform: translateX(-5%); }
+            to { transform: translateX(5%); }
+        }
+
+        /* Swamp Water Base */
+        .swamp-water {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(180deg,
+                #0f172a 0%,
+                #020617 100%);
+        }
+
+        /* Gravestones */
+        .gravestone {
+            position: absolute;
+            bottom: 25%;
+            width: 140px;
+            height: 90px;
+            background: linear-gradient(135deg,
+                #475569 0%,
+                #334155 50%,
+                #1e293b 100%);
+            border-radius: 10px 10px 4px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .gravestone:hover {
+            transform: translateY(-5px);
+        }
+
+        .grave-name {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            text-align: center;
+            padding: 0 8px;
+        }
+
+        .grave-dates {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        /* Python Package Tombstones - Lazarus Page */
+        .tombstone-numpy {
+            left: 10%;
+            transform: rotate(-8deg);
+        }
+        .tombstone-pandas {
+            left: 25%;
+            transform: rotate(5deg);
+        }
+        .tombstone-matplotlib {
+            left: 40%;
+            transform: rotate(-3deg);
+        }
+        .tombstone-requests {
+            left: 55%;
+            transform: rotate(7deg);
+        }
+        .tombstone-django {
+            left: 70%;
+            transform: rotate(-6deg);
+        }
+        .tombstone-flask {
+            left: 82%;
+            transform: rotate(4deg);
+        }
+
+        /* Additional tombstones for other packages */
+        .tombstone-tensorflow {
+            position: absolute;
+            bottom: 35%;
+            left: 15%;
+            width: 160px;
+            transform: rotate(-5deg);
+        }
+        .tombstone-pytorch {
+            position: absolute;
+            bottom: 35%;
+            left: 80%;
+            width: 160px;
+            transform: rotate(6deg);
+        }
+
+        /* Zombies Rising from Graves */
+        .zombie {
+            position: absolute;
+            bottom: 28%;
+            width: 40px;
+            height: 100px;
+            opacity: 0.9;
+            animation: rise 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes rise {
+            from { transform: translateY(0) scale(0.8); opacity: 0; }
+            to { transform: translateY(-80px) scale(1); opacity: 0.95; }
+        }
+
+        .zombie-body {
+            width: 36px;
+            height: 70px;
+            background: #4a5568;
+            margin: 0 auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .zombie-head {
+            width: 28px;
+            height: 30px;
+            background: #718096;
+            margin: 0 auto -5px;
+            border-radius: 14px;
+        }
+
+        /* Zombie positions */
+        .zombie-1 { left: 12%; animation-delay: 0s; }
+        .zombie-2 { left: 27%; animation-delay: 1s; }
+        .zombie-3 { left: 42%; animation-delay: 2s; }
+        .zombie-4 { left: 57%; animation-delay: 3s; }
+        .zombie-5 { left: 72%; animation-delay: 0.5s; }
+        .zombie-6 { left: 84%; animation-delay: 1.5s; }
+
+        /* Green atmospheric lighting */
+        .atmosphere {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center,
+                rgba(74, 222, 128, 0.15) 0%,
+                transparent 60%);
+            z-index: 2;
+        }
+
+        /* Content Overlay */
+        .content-overlay {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: #f8f5f0;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #f8f5f0;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #e8dcc5;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Dark Overlay */
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                rgba(15, 23, 42, 0.9) 0%,
+                rgba(15, 23, 42, 0.6) 50%,
+                rgba(15, 23, 42, 0.9) 100%);
+            z-index: 9;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .gravestone { width: 100px; height: 70px; }
+            .grave-name { font-size: 0.9rem; }
+            .page-title { font-size: 2rem; }
+            .page-subtitle { font-size: 1rem; }
+            .zombie { width: 30px; height: 80px; }
+            .zombie-body { height: 55px; }
+            .zombie-head { width: 22px; height: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <!-- Background -->
+        <div class="graveyard-background"></div>
+        <div class="stars" id="stars"></div>
+        <div class="atmosphere"></div>
+
+        <!-- Fog -->
+        <div class="fog"></div>
+        <div class="fog" style="top: 30%; opacity: 0.6; animation-duration: 50s;"></div>
+
+        <!-- Python Package Tombstones -->
+        <div class="gravestone tombstone-numpy">
+            <span class="grave-name">numpy</span>
+            <span class="grave-dates">2006 - Present</span>
+        </div>
+        <div class="gravestone tombstone-pandas">
+            <span class="grave-name">pandas</span>
+            <span class="grave-dates">2008 - Present</span>
+        </div>
+        <div class="gravestone tombstone-matplotlib">
+            <span class="grave-name">matplotlib</span>
+            <span class="grave-dates">2003 - Present</span>
+        </div>
+        <div class="gravestone tombstone-requests">
+            <span class="grave-name">requests</span>
+            <span class="grave-dates">2011 - Present</span>
+        </div>
+        <div class="gravestone tombstone-django">
+            <span class="grave-name">django</span>
+            <span class="grave-dates">2005 - Present</span>
+        </div>
+        <div class="gravestone tombstone-flask">
+            <span class="grave-name">flask</span>
+            <span class="grave-dates">2010 - Present</span>
+        </div>
+
+        <!-- Additional Tombstones -->
+        <div class="gravestone tombstone-tensorflow">
+            <span class="grave-name">tensorflow</span>
+            <span class="grave-dates">2015 - Present</span>
+        </div>
+        <div class="gravestone tombstone-pytorch">
+            <span class="grave-name">pytorch</span>
+            <span class="grave-dates">2016 - Present</span>
+        </div>
+
+        <!-- Zombies Rising -->
+        <div class="zombie zombie-1">
+            <div class="zombie-head"></div>
+            <div class="zombie-body"></div>
+        </div>
+        <div class="zombie zombie-2">
+            <div class="zombie-head"></div>
+            <div class="zombie-body"></div>
+        </div>
+        <div class="zombie zombie-3">
+            <div class="zombie-head"></div>
+            <div class="zombie-body"></div>
+        </div>
+        <div class="zombie zombie-4">
+            <div class="zombie-head"></div>
+            <div class="zombie-body"></div>
+        </div>
+        <div class="zombie zombie-5">
+            <div class="zombie-head"></div>
+            <div class="zombie-body"></div>
+        </div>
+        <div class="zombie zombie-6">
+            <div class="zombie-head"></div>
+            <div class="zombie-body"></div>
+        </div>
+
+        <!-- Swamp Water -->
+        <div class="swamp-water"></div>
+
+        <!-- Dark Overlay -->
+        <div class="dark-overlay"></div>
+
+        <!-- Content -->
+        <div class="content-overlay">
+            <h1 class="page-title">Lazarus</h1>
+            <p class="page-subtitle">
+                Python 3.14 Compatibility Tool<br>
+                Bringing your code back from the dead
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Generate random stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 120; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * 70 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.width = Math.random() * 2 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

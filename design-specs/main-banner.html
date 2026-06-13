@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gum Swamp Software - Main Site Banner Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f172a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Main Banner Container */
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Swamp Background - CSS-only representation */
+        .swamp-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                #0f172a 0%,
+                #1e293b 40%,
+                #0f172a 60%,
+                #020617 100%);
+            z-index: 1;
+        }
+
+        /* Stars */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Fog Layers */
+        .fog-layer {
+            position: absolute;
+            left: -20%;
+            width: 140%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(120, 139, 130, 0.15) 50%,
+                transparent 100%);
+            animation: fogMove 60s linear infinite;
+        }
+
+        .fog-layer:nth-child(1) { top: 20%; height: 30%; animation-duration: 45s; }
+        .fog-layer:nth-child(2) { top: 45%; height: 25%; animation-duration: 60s; animation-delay: 15s; }
+        .fog-layer:nth-child(3) { top: 70%; height: 20%; animation-duration: 75s; animation-delay: 30s; }
+
+        @keyframes fogMove {
+            from { transform: translateX(-10%); }
+            to { transform: translateX(10%); }
+        }
+
+        /* Cypress Trees */
+        .cypress-tree {
+            position: absolute;
+            bottom: 25%;
+            width: 40px;
+            height: 120px;
+            z-index: 3;
+        }
+
+        .cypress-trunk {
+            width: 6px;
+            height: 100%;
+            background: #2d3748;
+            margin: 0 auto;
+        }
+
+        .cypress-branch {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background: #2d3748;
+            border-radius: 50% 50% 0 0;
+        }
+
+        /* Trees positioned on sides */
+        .tree-left-1 { left: 10%; bottom: 20%; }
+        .tree-left-2 { left: 15%; bottom: 25%; width: 60px; height: 160px; }
+        .tree-right-1 { right: 10%; bottom: 20%; }
+        .tree-right-2 { right: 15%; bottom: 25%; width: 60px; height: 160px; }
+
+        /* Spanish Moss */
+        .spanish-moss {
+            position: absolute;
+            width: 4px;
+            height: 80px;
+            background: #5c5c5c;
+            border-radius: 2px;
+            z-index: 3;
+            animation: sway 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes sway {
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(10deg); }
+        }
+
+        /* The Shack */
+        .shack-container {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+        }
+
+        .shack-base {
+            width: 160px;
+            height: 120px;
+            background: #5c4033;
+            border-top: 8px solid #4a352b;
+            position: relative;
+        }
+
+        .shack-stilts {
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 80px;
+        }
+
+        .stilt {
+            position: absolute;
+            width: 12px;
+            height: 100%;
+            background: #4a352b;
+        }
+
+        .stilt.left { left: 10px; }
+        .stilt.right { right: 10px; }
+
+        .shack-roof {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 60px;
+            background: #3e2b22;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .shack-roof::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -10px;
+            width: 200px;
+            height: 10px;
+            background: #3e2b22;
+        }
+
+        /* Green Light from Shack */
+        .window {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 30px;
+            background: rgba(74, 222, 128, 0.9);
+            border-radius: 4px 4px 0 0;
+            box-shadow: 0 0 60px rgba(74, 222, 128, 0.6), 0 0 100px rgba(74, 222, 128, 0.3);
+            z-index: 5;
+        }
+
+        .window::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Satellite Dish */
+        .satellite-dish {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border: 4px solid #3e2b22;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .satellite-dish::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 4px;
+            background: #3e2b22;
+        }
+
+        .satellite-dish::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 20px;
+            background: #3e2b22;
+        }
+
+        /* Swamp Water Reflection */
+        .water-reflection {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(180deg,
+                rgba(74, 222, 128, 0.1) 0%,
+                rgba(15, 23, 42, 0.9) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        /* Content Overlay */
+        .content-overlay {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: #f8f5f0;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .company-name {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #f8f5f0;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #e8dcc5;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #2d5a40;
+            color: #f8f5f0;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #3b7a55;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 90, 64, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4ade80;
+            border: 2px solid #4ade80;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(74, 222, 128, 0.1);
+            border-color: #66f294;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .company-name { font-size: 2.5rem; }
+            .tagline { font-size: 1.1rem; }
+            .shack-container { transform: translateX(-50%) scale(0.7); }
+            .banner-container { height: 70vh; }
+        }
+
+        /* Dark Overlay */
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                rgba(26, 53, 38, 0.9) 0%,
+                rgba(15, 23, 42, 0.7) 50%,
+                rgba(15, 23, 42, 0.9) 100%);
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <!-- Background Elements -->
+        <div class="swamp-background"></div>
+        <div class="stars" id="stars"></div>
+
+        <!-- Fog Layers -->
+        <div class="fog-layer"></div>
+        <div class="fog-layer"></div>
+        <div class="fog-layer"></div>
+
+        <!-- Cypress Trees -->
+        <div class="cypress-tree tree-left-1">
+            <div class="cypress-trunk"></div>
+            <div class="cypress-branch" style="top: 20px; left: -15px;"></div>
+            <div class="cypress-branch" style="top: 40px; left: -20px;"></div>
+        </div>
+        <div class="cypress-tree tree-left-2">
+            <div class="cypress-trunk"></div>
+            <div class="cypress-branch" style="top: 30px; left: -20px;"></div>
+            <div class="cypress-branch" style="top: 60px; left: -25px;"></div>
+        </div>
+        <div class="cypress-tree tree-right-1">
+            <div class="cypress-trunk"></div>
+            <div class="cypress-branch" style="top: 20px; left: -15px;"></div>
+            <div class="cypress-branch" style="top: 40px; left: -20px;"></div>
+        </div>
+        <div class="cypress-tree tree-right-2">
+            <div class="cypress-trunk"></div>
+            <div class="cypress-branch" style="top: 30px; left: -20px;"></div>
+            <div class="cypress-branch" style="top: 60px; left: -25px;"></div>
+        </div>
+
+        <!-- Spanish Moss on Trees -->
+        <div class="spanish-moss" style="left: 18%; bottom: 35%; height: 60px;"></div>
+        <div class="spanish-moss" style="left: 82%; bottom: 35%; height: 70px; animation-delay: 2s;"></div>
+
+        <!-- The Shack -->
+        <div class="shack-container">
+            <div class="shack-roof"></div>
+            <div class="shack-base">
+                <div class="window"></div>
+            </div>
+            <div class="shack-stilts">
+                <div class="stilt left"></div>
+                <div class="stilt right"></div>
+            </div>
+        </div>
+
+        <!-- Satellite Dish -->
+        <div class="satellite-dish"></div>
+
+        <!-- Water Reflection -->
+        <div class="water-reflection"></div>
+
+        <!-- Dark Overlay for Text Readability -->
+        <div class="dark-overlay"></div>
+
+        <!-- Content -->
+        <div class="content-overlay">
+            <h1 class="company-name">Gum Swamp Software</h1>
+            <p class="tagline">Building Open Source Tools from the Coastal Lowlands</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Learn More</a>
+                <a href="#" class="btn btn-secondary">View Projects</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate random stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * 80 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.width = Math.random() * 3 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.animationDelay = Math.random() * 2 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
